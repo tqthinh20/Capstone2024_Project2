@@ -4,11 +4,11 @@ function UserHome(props) {
   return (
     <div>
       <div className="container-main">
-        <div className="container-list title">
+        <div className="title">
           <h1>{props.el.electionTitle}</h1>
           <br />
-          <center>{props.el.organizationTitle}</center>
-          <table style={{ marginTop: "21px" }}>
+          <center>{props.el.electionDescription}</center>
+          <table style={{ marginTop: "21px"}}>
             <tr>
               <th>Admin: </th>
               <td>

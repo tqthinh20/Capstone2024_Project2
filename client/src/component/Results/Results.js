@@ -115,7 +115,7 @@ export default class Result extends Component {
                 <p>If you haven't casted your vote yet, you can still do it now.</p>
                 <br />
                 <Link to="/Voting" style={{ color: "black", textDecoration: "underline" }}>
-                  Voting Page
+                  Cast Vote
                 </Link>
               </center>
             </div>
@@ -143,6 +143,7 @@ function displayWinner(candidates) {
     }
     return winnerCandidate;
   };
+  
   const renderWinner = (winner) => {
     return (
       <div className="container-winner">
@@ -171,7 +172,7 @@ export function displayResults(candidates) {
         <td>{candidate.voteCount}</td>
       </tr>
     );
-  };
+  };  
   return (
     <>
       {candidates.length > 0 ? (

@@ -38,7 +38,7 @@ class NotFound extends Component {
         <h1>404 NOT FOUND!</h1>
         <center>
           <p>
-            The page your are looking for doesn't exist.
+            The page doesn't exist.
             <br />
             Go to{" "}
             <Link to="/" style={{ color: "black", textDecoration: "underline" }}>

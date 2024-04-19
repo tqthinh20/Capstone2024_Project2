@@ -33,7 +33,7 @@ export default function NavbarAdmin() {
         </li>
         <li>
           <NavLink to="/Registration" activeClassName="nav-active">
-            Registration
+            Register
           </NavLink>
         </li>
         <li>

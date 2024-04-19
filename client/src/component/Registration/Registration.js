@@ -9,8 +9,6 @@ import getWeb3 from "../../getWeb3";
 import Election from "../../contracts/Election.json";
 
 export default class Registration extends Component {
-  email_regex = "/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/"
-  
   constructor(props) {
     super(props);
     this.state = {

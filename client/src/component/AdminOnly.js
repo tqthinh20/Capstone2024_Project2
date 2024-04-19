@@ -7,7 +7,7 @@ const AdminOnly = (props) => {
         <div style={{ margin: "17px" }}>
           <h1>{props.page}</h1>
         </div>
-        <p>Only for Admin access.</p>
+        <p>This section is only for Admin access.</p>
       </center>
     </div>
   );

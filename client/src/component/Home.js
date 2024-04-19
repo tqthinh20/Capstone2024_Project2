@@ -1,23 +1,18 @@
-// Node modules
 import React, { Component } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
-// Components
 import Navbar from "./Navbar/Navigation";
 import NavbarAdmin from "./Navbar/NavigationAdmin";
 import UserHome from "./UserHome";
 import StartEnd from "./StartEnd";
 import ElectionStatus from "./ElectionStatus";
 
-// Contract
 import getWeb3 from "../getWeb3";
 import Election from "../contracts/Election.json";
 
-// CSS
 import "./Home.css";
 
-// const buttonRef = React.createRef();
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -192,7 +187,6 @@ export default class Home extends Component {
           <form onSubmit={handleSubmit(onSubmit)}>
             {!this.state.elStarted & !this.state.elEnded ? (
               <div className="container-main">
-                {/* about-admin */}
                 <div className="about-admin">
                   <h3>About Admin</h3>
                   <div className="container-item center-items">
@@ -222,7 +216,7 @@ export default class Home extends Component {
                             {...register("adminEmail", {
                               required: "*Required",
                               pattern: {
-                                value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/, // email validation using RegExp
+                                value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
                                 message: "*Invalid",
                               },
                             })}
@@ -232,7 +226,6 @@ export default class Home extends Component {
                     </form>
                   </div>
                 </div>
-                {/* about-election */}
                 <div className="about-election">
                   <h3>About Election</h3>
                   <div className="container-item center-items">

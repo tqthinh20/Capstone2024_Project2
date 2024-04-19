@@ -16,17 +16,17 @@ export default function Navbar() {
       >
         <li>
           <NavLink to="/Registration" activeClassName="nav-active">
-            Registration
+            Register
           </NavLink>
         </li>
         <li>
           <NavLink to="/Voting" activeClassName="nav-active">
-            Voting
+            Cast Vote
           </NavLink>
         </li>
         <li>
           <NavLink to="/Results" activeClassName="nav-active">
-            Results
+            Election Result
           </NavLink>
         </li>
       </ul>

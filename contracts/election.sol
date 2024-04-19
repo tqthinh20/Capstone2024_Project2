@@ -56,23 +56,6 @@ contract Election {
         // Modifier for only admin access
         require(msg.sender == admin);
         _;
-    }    
-
-    // Adding new candidates
-    function addCandidate(string memory _header, string memory _description)
-        public
-        // Only admin can add
-        onlyAdmin
-    {
-        Candidate memory newCandidate =
-            Candidate({
-                candidateId: candidateCount,
-                header: _header,
-                description: _description,
-                voteCount: 0
-            });
-        candidateDetails[candidateCount] = newCandidate;
-        candidateCount += 1;
     }
 
     function setElectionDetails(
@@ -107,6 +90,23 @@ contract Election {
         electionDetails.adminEmail,  
         electionDetails.electionTitle, 
         electionDetails.electionDescription);
+    }
+
+    // Adding new candidates
+    function addCandidate(string memory _header, string memory _description)
+        public
+        // Only admin can add
+        onlyAdmin
+    {
+        Candidate memory newCandidate =
+            Candidate({
+                candidateId: candidateCount,
+                header: _header,
+                description: _description,
+                voteCount: 0
+            });
+        candidateDetails[candidateCount] = newCandidate;
+        candidateCount += 1;
     }
 
     // Get candidates count

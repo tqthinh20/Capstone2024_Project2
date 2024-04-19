@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
+import getWeb3 from "../../../getWeb3";
+import Election from "../../../contracts/Election.json";
+
 import Navbar from "../../Navbar/Navigation";
 import NavbarAdmin from "../../Navbar/NavigationAdmin";
 
 import AdminOnly from "../../AdminOnly";
-
-import getWeb3 from "../../../getWeb3";
-import Election from "../../../contracts/Election.json";
 
 import "./Verification.css";
 

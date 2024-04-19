@@ -18,7 +18,6 @@ const StartEnd = (props) => {
     >
       {!props.elStarted ? (
         <>
-          {/* edit here to display start election Again button */}
           {!props.elEnded ? (
             <>
               <div
