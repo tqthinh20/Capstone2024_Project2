@@ -126,35 +126,39 @@ export default class AddCandidate extends Component {
           <small>Total candidates: {this.state.candidateCount}</small>
           <div className="container-item">
             <form className="form">
-              <label className={"label-ac"}>
-                Header
-                <input
-                  className={"input-ac"}
-                  type="text"
-                  placeholder="eg. Marcus"
-                  value={this.state.header}
-                  onChange={this.updateHeader}
-                />
-              </label>
-              <label className={"label-ac"}>
-                Description
-                <input
-                  className={"input-ac"}
-                  type="text"
-                  placeholder="eg. This is a test"
-                  value={this.state.description}
-                  onChange={this.updateDescription}
-                />
-              </label>
-              <button
-                className="btn-add"
-                disabled={
-                  this.state.header.length < 3 || this.state.header.length > 21
-                }
-                onClick={this.addCandidate}
-              >
-                Add
-              </button>
+              <div className="div-li">
+                <label className={"label-ac"}>
+                  Name
+                  <input
+                    className={"input-ac"}
+                    type="text"
+                    value={this.state.header}
+                    onChange={this.updateHeader}
+                  />
+                </label>
+              </div> 
+              <div className="div-li">
+                <label className={"label-ac"}>
+                  Description
+                  <input
+                    className={"input-ac"}
+                    type="text"
+                    value={this.state.description}
+                    onChange={this.updateDescription}
+                  />
+                </label>
+              </div>
+              <div>
+                <button
+                  className="btn-add"
+                  disabled={
+                    this.state.header.length < 3 || this.state.header.length > 21
+                  }
+                  onClick={this.addCandidate}
+                >
+                  Add
+                </button>
+              </div>              
             </form>
           </div>
         </div>
@@ -195,7 +199,7 @@ export function loadAdded(candidates) {
           className="container-item"
           style={{
             display: "block",
-            backgroundColor: "#DDFFFF",
+            backgroundColor: "#FFFFFF",
           }}
         >
           {candidates.map(renderAdded)}

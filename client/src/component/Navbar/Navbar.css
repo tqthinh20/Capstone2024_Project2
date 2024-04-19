@@ -10,13 +10,15 @@ a {
 }
 nav {
   display: flex;
-  height: 11vh;
+  height: 14vh;
   background: rgb(197, 241, 197);
   justify-content: space-around;
   position: sticky;
   top: 0;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 nav .header {
   font-size: 30px;

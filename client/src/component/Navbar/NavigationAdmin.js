@@ -28,22 +28,22 @@ export default function NavbarAdmin() {
         </li>
         <li>
           <NavLink to="/Verification" activeClassName="nav-active">
-            Voter Verification
+            Verify Voter
           </NavLink>
         </li>
         <li>
           <NavLink to="/Registration" activeClassName="nav-active">
-            <i className="far fa-registered" /> Registration
+            Registration
           </NavLink>
         </li>
         <li>
           <NavLink to="/Voting" activeClassName="nav-active">
-            <i className="fas fa-vote-yea" /> Voting
+            Cast vote
           </NavLink>
         </li>
         <li>
           <NavLink to="/Results" activeClassName="nav-active">
-            <i className="fas fa-poll-h" /> Results
+            Election Result
           </NavLink>
         </li>
       </ul>

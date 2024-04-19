@@ -163,7 +163,7 @@ export default class Registration extends Component {
               <small>Register to vote.</small>
               <div className="container-item">
                 <form>
-                  <div className="div-li">
+                  <div className="div-li-1">
                     <label className={"label-r"}>
                       Account Address
                       <input
@@ -174,24 +174,22 @@ export default class Registration extends Component {
                       />{" "}
                     </label>
                   </div>
-                  <div className="div-li">
+                  <div className="div-li-1">
                     <label className={"label-r"}>
                       Name
                       <input
                         className={"input-r"}
                         type="text"
-                        placeholder="eg. Ava"
                         value={this.state.voterName}
                         onChange={this.updateVoterName}
                       />{" "}
                     </label>
                   </div>
-                  <div className="div-li">
+                  <div className="div-li-1">
                     <label className={"label-r"}>
-                      Email <span style={{ color: "tomato" }}>*</span>
+                      Email
                       <input
                         className={"input-r"}
-                        placeholder="eg. you@example.com"
                         value={this.state.voterEmail}
                         onChange={this.updateVoterEmail}
                       />
@@ -199,8 +197,8 @@ export default class Registration extends Component {
                   </div>
                   <p className="note">
                     <span style={{ color: "tomato" }}> Note: </span>
-                    <br /> Make sure your account address and Email are correct.<br />
-                    Admin might not approve your account if your email is invalid.
+                    <br /> - Make sure your account address and Email are correct.<br />
+                    - Admin might not approve your account if your email is invalid.
                   </p>
                   <button
                     className="btn-add"

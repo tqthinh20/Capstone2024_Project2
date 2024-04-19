@@ -1,8 +1,15 @@
+.div-li {
+  display: inline-grid;
+  padding-inline: 25px;
+  padding-top: 10px;
+}
 .form {
   margin: 5px;
   padding: 7px;
-  margin-right: auto;
   overflow: auto;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
 }
 .input-ac {
   margin: 0.5em;
@@ -11,11 +18,9 @@
   display: block;
   width: 333px;
 }
-
 .btn-add {
-  width: 25%;
-  padding: 5px;
-  float: inline-end;
+  width: 15%;
+  padding: 10px;
   margin: 1em;
 }
 

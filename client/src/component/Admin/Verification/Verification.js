@@ -101,7 +101,7 @@ export default class Registration extends Component {
       <>
         {voter.isVerified ? (
           <div className="container-list success">
-            <p style={{ margin: "7px 0px" }}>AC: {voter.address}</p>
+            <p style={{ margin: "7px 0px" }}>Account Address: {voter.address}</p>
             <table>
               <tr>
                 <th>Name</th>
@@ -117,7 +117,7 @@ export default class Registration extends Component {
           </div>
         ) : null}
         <div
-          className="container-list attention"
+          className="container-list unverified"
           style={{ display: voter.isVerified ? "none" : null }}
         >
           <table>

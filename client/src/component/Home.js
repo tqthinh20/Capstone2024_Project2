@@ -196,71 +196,74 @@ export default class Home extends Component {
                 <div className="about-admin">
                   <h3>About Admin</h3>
                   <div className="container-item center-items">
-                    <div>
-                      <label className="label-home">
-                        Full Name{" "}
-                        {errors.adminName && <EMsg msg="*required" />}
-                        <input
-                          className="input-home"
-                          type="text"
-                          placeholder="Name"
-                          {...register("adminName", {
-                            required: true,
-                          })}
-                        />
-                      </label>
-                      
-                      <label className="label-home">
-                        Email{" "}
-                        {errors.adminEmail && (
-                          <EMsg msg={errors.adminEmail.message} />
-                        )}
-                        <input
-                          className="input-home"
-                          placeholder="eg. you@example.com"
-                          name="adminEmail"
-                          {...register("adminEmail", {
-                            required: "*Required",
-                            pattern: {
-                              value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/, // email validation using RegExp
-                              message: "*Invalid",
-                            },
-                          })}
-                        />
-                      </label>
-                    </div>
+                    <form>
+                      <div className="div-li">
+                        <label className="label-home">
+                          Full Name{" "}
+                          {errors.adminName && <EMsg msg="*required" />}
+                          <input
+                            className="input-home"
+                            type="text"
+                            {...register("adminName", {
+                              required: true,
+                            })}
+                          />
+                        </label>
+                      </div>
+                      <div className="div-li">
+                        <label className="label-home">
+                          Email{" "}
+                          {errors.adminEmail && (
+                            <EMsg msg={errors.adminEmail.message} />
+                          )}
+                          <input
+                            className="input-home"
+                            name="adminEmail"
+                            {...register("adminEmail", {
+                              required: "*Required",
+                              pattern: {
+                                value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/, // email validation using RegExp
+                                message: "*Invalid",
+                              },
+                            })}
+                          />
+                        </label>
+                      </div>                      
+                    </form>
                   </div>
                 </div>
                 {/* about-election */}
                 <div className="about-election">
                   <h3>About Election</h3>
                   <div className="container-item center-items">
-                    <div>
-                      <label className="label-home">
-                        Election Title{" "}
-                        {errors.electionTitle && <EMsg msg="*required" />}
-                        <input
-                          className="input-home"
-                          type="text"
-                          placeholder="eg. Test Election"
-                          {...register("electionTitle", {
-                            required: true,
-                          })}
-                        />
-                      </label>
-                      <label className="label-home">
-                        Short Description{" "}
-                        {errors.electionDescription && <EMsg msg="*required" />}
-                        <input
-                          className="input-home"
-                          type="text"
-                          placeholder="eg. This is a test election"
-                          {...register("electionDescription", {
-                            required: true,
-                          })}
-                        />
-                      </label>
-                    </div>
+                    <form>
+                      <div className="div-li">
+                        <label className="label-home">
+                          Election Title{" "}
+                          {errors.electionTitle && <EMsg msg="*required" />}
+                          <input
+                            className="input-home"
+                            type="text"
+                            {...register("electionTitle", {
+                              required: true,
+                            })}
+                          />
+                        </label>
+                      </div>
+                      <div className="div-li">
+                        <label className="label-home">
+                          Short Description{" "}
+                          {errors.electionDescription && <EMsg msg="*required" />}
+                          <input
+                            className="input-home"
+                            type="text"
+                            {...register("electionDescription", {
+                              required: true,
+                            })}
+                          />
+                        </label>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
