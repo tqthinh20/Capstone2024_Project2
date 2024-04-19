@@ -1,0 +1,21 @@
+.form {
+  margin: 5px;
+  padding: 7px;
+  margin-right: auto;
+  overflow: auto;
+}
+.input-ac {
+  margin: 0.5em;
+  margin-left: 0;
+  padding: 1em;
+  display: block;
+  width: 333px;
+}
+
+.btn-add {
+  width: 25%;
+  padding: 5px;
+  float: inline-end;
+  margin: 1em;
+}
+
