@@ -32,6 +32,7 @@ contract Election {
         string header;
         string description;
         uint256 voteCount;
+        address[] votersList;
     }
     mapping(uint256 => Candidate) public candidateDetails;
 
@@ -48,7 +49,6 @@ contract Election {
     mapping(address => Voter) public voterDetails;
     
     function getAdmin() public view returns (address) {
-        // Returns account address used to deploy contract (i.e. admin)
         return admin;
     }
 
@@ -98,12 +98,14 @@ contract Election {
         // Only admin can add
         onlyAdmin
     {
+        address[] memory votersAddress;
         Candidate memory newCandidate =
             Candidate({
                 candidateId: candidateCount,
                 header: _header,
                 description: _description,
-                voteCount: 0
+                voteCount: 0,
+                votersList: votersAddress
             });
         candidateDetails[candidateCount] = newCandidate;
         candidateCount += 1;
@@ -111,13 +113,11 @@ contract Election {
 
     // Get candidates count
     function getTotalCandidate() public view returns (uint256) {
-        // Returns total number of candidates
         return candidateCount;
     }
 
     // Get voters count
     function getTotalVoter() public view returns (uint256) {
-        // Returns total number of voters
         return voterCount;
     }
 
@@ -153,6 +153,7 @@ contract Election {
         require(start == true);
         require(end == false);
         candidateDetails[candidateId].voteCount += 1;
+        candidateDetails[candidateId].votersList.push(msg.sender);
         voterDetails[msg.sender].hasVoted = true;
     }
 
