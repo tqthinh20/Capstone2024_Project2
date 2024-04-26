@@ -54,7 +54,7 @@ contract Election {
         uint256 ballotId;
         address voterAddress;
         uint256 candidateId;
-        bytes32 hashedBallot;
+        bytes32 ballotHash;
     }
     mapping(uint256 => Ballot) public ballotDetails;
     
@@ -168,7 +168,7 @@ contract Election {
                 ballotId: ballotCount,
                 voterAddress: msg.sender,
                 candidateId: _candidateId,
-                hashedBallot: keccak256(abi.encodePacked(ballotCount, msg.sender, _candidateId))
+                ballotHash: keccak256(abi.encodePacked(ballotCount, msg.sender, _candidateId))
             });
         ballotDetails[ballotCount] = newBallot;
         ballotCount += 1;
@@ -183,7 +183,7 @@ contract Election {
 
         // Count number of vote for each candidate
         for (uint256 i = 0; i < ballotCount; i++) {
-            if (ballotDetails[i].hashedBallot == keccak256(abi.encodePacked(ballotDetails[i].ballotId, ballotDetails[i].voterAddress, ballotDetails[i].candidateId))) {
+            if (ballotDetails[i].ballotHash == keccak256(abi.encodePacked(ballotDetails[i].ballotId, ballotDetails[i].voterAddress, ballotDetails[i].candidateId))) {
                 candidateDetails[ballotDetails[i].candidateId].voteCount += 1;
                 candidateDetails[ballotDetails[i].candidateId].votersList.push(ballotDetails[i].voterAddress);
             }
