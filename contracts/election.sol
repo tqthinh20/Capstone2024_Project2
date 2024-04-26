@@ -5,6 +5,7 @@ contract Election {
     address public admin;
     uint256 candidateCount;
     uint256 voterCount;
+    uint256 ballotCount;
     bool start;
     bool end;
 
@@ -13,6 +14,7 @@ contract Election {
         admin = msg.sender;
         candidateCount = 0;
         voterCount = 0;
+        ballotCount = 0;
         start = false;
         end = false;
     }
@@ -47,6 +49,14 @@ contract Election {
     }
     address[] public voters; // Array of address to store address of voters
     mapping(address => Voter) public voterDetails;
+
+    struct Ballot {
+        uint256 ballotId;
+        address voterAddress;
+        uint256 candidateId;
+        bytes32 hashedBallot;
+    }
+    mapping(uint256 => Ballot) public ballotDetails;
     
     function getAdmin() public view returns (address) {
         return admin;
@@ -147,13 +157,22 @@ contract Election {
     }
 
     // Vote
-    function vote(uint256 candidateId) public {
+    function vote(uint256 _candidateId) public {
         require(voterDetails[msg.sender].hasVoted == false);
         require(voterDetails[msg.sender].isVerified == true);
         require(start == true);
         require(end == false);
-        candidateDetails[candidateId].voteCount += 1;
-        candidateDetails[candidateId].votersList.push(msg.sender);
+
+        Ballot memory newBallot =
+            Ballot({
+                ballotId: ballotCount,
+                voterAddress: msg.sender,
+                candidateId: _candidateId,
+                hashedBallot: keccak256(abi.encodePacked(ballotCount, msg.sender, _candidateId))
+            });
+        ballotDetails[ballotCount] = newBallot;
+        ballotCount += 1;
+
         voterDetails[msg.sender].hasVoted = true;
     }
 
@@ -161,6 +180,14 @@ contract Election {
     function endElection() public onlyAdmin {
         end = true;
         start = false;
+
+        // Count number of vote for each candidate
+        for (uint256 i = 0; i < ballotCount; i++) {
+            if (ballotDetails[i].hashedBallot == keccak256(abi.encodePacked(ballotDetails[i].ballotId, ballotDetails[i].voterAddress, ballotDetails[i].candidateId))) {
+                candidateDetails[ballotDetails[i].candidateId].voteCount += 1;
+                candidateDetails[ballotDetails[i].candidateId].votersList.push(ballotDetails[i].voterAddress);
+            }
+        }
     }
 
     // Get election start and end values
